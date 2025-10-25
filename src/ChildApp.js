@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, DollarSign, Target, CheckCircle, Star, Award, Heart, PhoneOff, Mic, MicOff, Volume2, Clock, CreditCard, Camera, QrCode } from 'lucide-react';
-
+import { useNavigate } from 'react-router-dom'; 
 const ChildApp = () => {
-  const [activeScreen, setActiveScreen] = useState('home');
+  const navigate = useNavigate(); 
+    const [activeScreen, setActiveScreen] = useState('home');
   const [callStatus, setCallStatus] = useState('none'); // 'none', 'incoming', 'incall'
   const [callTime, setCallTime] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
@@ -305,19 +306,25 @@ const ChildApp = () => {
   return (
     <div className="min-h-screen bg-gray-50 pb-24">
       {/* 헤더 - 모던 스타일 */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
-        <div className="max-w-2xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">{childData.name}의 AI 도우미</h1>
-              <p className="text-xs text-gray-400">레벨 {childData.level} · {childData.points}P</p>
-            </div>
-            <div className="bg-red-500 p-2.5 rounded-xl">
-              <Phone className="w-5 h-5 text-white" />
-            </div>
-          </div>
-        </div>
-      </header>
+<header className="bg-white border-b border-gray-100 sticky top-0 z-10">
+  <div className="max-w-2xl mx-auto px-6 py-4">
+    <div className="flex items-center justify-between">
+      <button 
+        onClick={() => navigate('/')}
+        className="text-gray-500 hover:text-gray-700 text-sm"
+      >
+        ← 뒤로
+      </button>
+      <div className="text-center">
+        <h1 className="text-xl font-bold text-gray-900">{childData.name}의 AI 도우미</h1>
+        <p className="text-xs text-gray-400">레벨 {childData.level} · {childData.points}P</p>
+      </div>
+      <div className="bg-red-500 p-2.5 rounded-xl">
+        <Phone className="w-5 h-5 text-white" />
+      </div>
+    </div>
+  </div>
+</header>
 
       {/* 메인 컨텐츠 */}
       <main className="max-w-2xl mx-auto px-6 py-6">
