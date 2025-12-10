@@ -16,7 +16,7 @@ const SelectionScreen = () => {
           {/* 아이 모드 */}
           <button
             onClick={() => navigate('/child')}
-            className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transitioㅏn-all transform hover:scale-105 border-4 border-transparent hover:border-gray-800"
+            className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 border-4 border-transparent hover:border-gray-800"
           >
             <div className="flex flex-col items-center">
               <div className="w-24 h-24 bg-black rounded-3xl flex items-center justify-center mb-6">
@@ -41,7 +41,7 @@ const SelectionScreen = () => {
             className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 border-4 border-transparent hover:border-gray-800"
           >
             <div className="flex flex-col items-center">
-              <div className="w-24 h-24 bg-gradient-to-br from-stone-700 to-stone-800 rounded-3xl flex items-center justify-center mb-6">
+              <div className="w-24 h-24 bg-gray-700 rounded-3xl flex items-center justify-center mb-6">
                 <Users className="w-12 h-12 text-white" />
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-3">부모 모드</h2>
