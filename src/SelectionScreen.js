@@ -9,7 +9,6 @@ const SelectionScreen = () => {
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50 flex items-center justify-center p-6">
       <div className="max-w-4xl w-full">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-3">부모 대신 전화 걸어 경제관념과 생활습관을 교육하는 똑똑한 ai, 넛지</h1>
           <p className="text-gray-600">사용할 모드를 선택하세요</p>
         </div>
 
