@@ -89,7 +89,7 @@ const LoginScreen = () => {
               onClick={() => setIsLogin(true)}
               className={`flex-1 py-3 rounded-xl font-semibold transition ${
                 isLogin
-                  ? 'bg-black text-white'
+                  ? 'bg-slate-600 text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
@@ -102,7 +102,7 @@ const LoginScreen = () => {
               onClick={() => setIsLogin(false)}
               className={`flex-1 py-3 rounded-xl font-semibold transition ${
                 !isLogin
-                  ? 'bg-black text-white'
+                  ? 'bg-slate-600 text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
@@ -153,7 +153,7 @@ const LoginScreen = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-black hover:bg-gray-800 text-white py-4 rounded-xl font-semibold text-lg transition"
+                className="w-full bg-slate-600 hover:bg-slate-700 text-white py-4 rounded-xl font-semibold text-lg transition"
               >
                 로그인
               </button>
@@ -234,7 +234,7 @@ const LoginScreen = () => {
                     onClick={() => setSignupForm({ ...signupForm, role: 'parent' })}
                     className={`py-3 rounded-xl font-medium transition ${
                       signupForm.role === 'parent'
-                        ? 'bg-black text-white'
+                        ? 'bg-slate-600 text-white'
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                     }`}
                   >
@@ -245,7 +245,7 @@ const LoginScreen = () => {
                     onClick={() => setSignupForm({ ...signupForm, role: 'child' })}
                     className={`py-3 rounded-xl font-medium transition ${
                       signupForm.role === 'child'
-                        ? 'bg-black text-white'
+                        ? 'bg-slate-600 text-white'
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                     }`}
                   >
@@ -255,7 +255,7 @@ const LoginScreen = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-black hover:bg-gray-800 text-white py-4 rounded-xl font-semibold text-lg transition"
+                className="w-full bg-slate-600 hover:bg-slate-700 text-white py-4 rounded-xl font-semibold text-lg transition"
               >
                 회원가입
               </button>

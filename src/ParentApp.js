@@ -183,7 +183,7 @@ export default function ParentApp() {
         <h1 className="text-xl font-bold text-white">부모 관리 대시보드</h1>
         <p className="text-xs text-stone-400">아이: {childData.name}</p>
       </div>
-      <div className="bg-gray-700 p-2.5 rounded-xl">
+      <div className="bg-slate-600 p-2.5 rounded-xl">
         <LayoutDashboard className="w-5 h-5 text-white" />
       </div>
     </div>
@@ -195,12 +195,55 @@ export default function ParentApp() {
         {/* 대시보드 */}
         {activeScreen === 'dashboard' && (
           <div className="space-y-6">
+            {/* AI 통화 기록 */}
+            <div className="bg-stone-800 border border-stone-700 rounded-2xl p-6">
+              <h2 className="text-2xl font-bold text-white mb-6">AI 통화 기록</h2>
+              <div className="space-y-4">
+                {aiCallLogs.map(log => (
+                  <button
+                    key={log.id}
+                    onClick={() => setSelectedCallLog(log)}
+                    className="w-full bg-stone-900 hover:bg-stone-800 rounded-xl p-5 transition text-left"
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-slate-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                          <Phone className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-white">
+                            {log.type === 'payment' ? '🔴 결제 확인 전화' : '✅ 미션 확인 전화'}
+                          </p>
+                          <p className="text-sm text-stone-400">{log.merchant}</p>
+                          <p className="text-xs text-stone-500 mt-1">{log.time}</p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-sm text-stone-400">{log.duration}</p>
+                        <span className={`text-xs font-medium ${
+                          log.result.includes('거부') ? 'text-gray-300' : 'text-gray-300'
+                        }`}>
+                          {log.result}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="bg-stone-800 rounded-lg p-3">
+                      <p className="text-sm text-stone-300">{log.summary}</p>
+                    </div>
+                    <div className="mt-3 text-right">
+                      <span className="text-gray-300 text-sm">대화 내용 보기 →</span>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* 긴급 알림 - 승인 대기 */}
             {pendingPayments.length > 0 && (
               <div className="bg-gray-800 border-2 border-gray-600 rounded-2xl p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gray-600 rounded-xl flex items-center justify-center animate-pulse">
+                    <div className="w-12 h-12 bg-slate-600 rounded-xl flex items-center justify-center animate-pulse">
                       <CreditCard className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -208,7 +251,7 @@ export default function ParentApp() {
                       <p className="text-gray-300 text-sm">AI가 검토를 완료했습니다</p>
                     </div>
                   </div>
-                  <span className="bg-gray-600 text-white px-4 py-2 rounded-lg text-sm font-bold animate-pulse">
+                  <span className="bg-slate-600 text-white px-4 py-2 rounded-lg text-sm font-bold animate-pulse">
                     {pendingPayments.length}건 대기
                   </span>
                 </div>
@@ -239,7 +282,7 @@ export default function ParentApp() {
                       </button>
                       <button
                         onClick={() => handleApprove(payment.id)}
-                        className="bg-gray-600 hover:bg-gray-500 text-white py-3 rounded-xl font-semibold transition"
+                        className="bg-slate-600 hover:bg-slate-700 text-white py-3 rounded-xl font-semibold transition"
                       >
                         승인
                       </button>
@@ -249,32 +292,6 @@ export default function ParentApp() {
               </div>
             )}
 
-            {/* 주간 용돈 - 크게 강조 */}
-            <div className="bg-gray-800 rounded-2xl p-8 shadow-2xl">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-2xl font-bold text-white">주간 용돈</h2>
-                <button className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
-                  수정
-                </button>
-              </div>
-              <div className="mb-6">
-                <div className="flex items-end space-x-3 mb-3">
-                  <p className="text-5xl font-bold text-white">{childData.weeklyBudget.toLocaleString()}</p>
-                  <p className="text-xl text-gray-300 mb-2">원 / 주</p>
-                </div>
-                <div className="w-full bg-white bg-opacity-20 rounded-full h-3">
-                  <div 
-                    className="bg-white h-3 rounded-full transition-all duration-500"
-                    style={{ width: `${(childData.remaining / childData.weeklyBudget) * 100}%` }}
-                  />
-                </div>
-                <div className="flex justify-between mt-3">
-                  <p className="text-gray-300 text-sm">사용: {childData.spent.toLocaleString()}원</p>
-                  <p className="text-white text-sm font-semibold">남음: {childData.remaining.toLocaleString()}원</p>
-                </div>
-              </div>
-            </div>
-
             {/* AI 결제 규칙 - 핵심 기능 강조 */}
             <div className="bg-gray-800 border-2 border-gray-600 rounded-2xl p-6 shadow-2xl">
               <div className="flex items-center justify-between mb-4">
@@ -282,7 +299,7 @@ export default function ParentApp() {
                   <h2 className="text-2xl font-bold text-white mb-1">🤖 AI 결제 규칙</h2>
                   <p className="text-gray-300 text-sm">AI가 자동으로 학습하고 판단합니다</p>
                 </div>
-                <div className="bg-gray-600 px-3 py-1 rounded-full">
+                <div className="bg-slate-600 px-3 py-1 rounded-full">
                   <span className="text-white text-sm font-bold">핵심 기능</span>
                 </div>
               </div>
@@ -308,12 +325,71 @@ export default function ParentApp() {
               {/* 규칙 추가 버튼 */}
               <button
                 onClick={() => setShowRuleDialog(true)}
-                className="w-full bg-gray-600 hover:bg-gray-500 text-white py-4 rounded-xl font-bold text-lg transition shadow-lg flex items-center justify-center space-x-2"
+                className="w-full bg-slate-600 hover:bg-slate-700 text-white py-4 rounded-xl font-bold text-lg transition shadow-lg flex items-center justify-center space-x-2"
               >
                 <span className="text-2xl">+</span>
                 <span>AI에게 새 규칙 학습시키기</span>
               </button>
             </div>
+
+            {/* 통화 기록 상세 모달 */}
+            {selectedCallLog && (
+              <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4">
+                <div className="bg-stone-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                  <div className="p-6">
+                    <button
+                      onClick={() => setSelectedCallLog(null)}
+                      className="text-stone-400 hover:text-white mb-4 flex items-center"
+                    >
+                      ← 돌아가기
+                    </button>
+                    
+                    <div className="mb-6">
+                      <div className="flex items-center space-x-3 mb-2">
+                        <div className="w-12 h-12 bg-slate-600 rounded-xl flex items-center justify-center">
+                          <Phone className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <h2 className="text-xl font-bold text-white">{selectedCallLog.merchant}</h2>
+                          <p className="text-sm text-stone-400">{selectedCallLog.time} · {selectedCallLog.duration}</p>
+                        </div>
+                      </div>
+                      <div className="bg-stone-900 rounded-lg p-3">
+                        <span className={`text-sm font-medium ${
+                          selectedCallLog.result.includes('거부') ? 'text-gray-300' : 'text-gray-300'
+                        }`}>
+                          {selectedCallLog.result}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* 대화 내용 */}
+                    <div className="bg-stone-900 rounded-xl p-4 max-h-96 overflow-y-auto space-y-4">
+                      {selectedCallLog.conversation.map((msg, index) => (
+                        <div key={index} className={`flex ${msg.sender === 'ai' ? 'justify-start' : 'justify-end'}`}>
+                          <div className={`max-w-xs ${msg.sender === 'ai' ? 'mr-auto' : 'ml-auto'}`}>
+                            {msg.sender === 'ai' && (
+                              <p className="text-stone-400 text-xs mb-1 ml-3">AI 도우미</p>
+                            )}
+                            {msg.sender === 'child' && (
+                              <p className="text-stone-400 text-xs mb-1 mr-3 text-right">{childData.name}</p>
+                            )}
+                            <div className={`rounded-2xl px-4 py-3 ${
+                              msg.sender === 'ai' 
+                                ? 'bg-stone-700 text-white' 
+                                : 'bg-slate-600 text-white'
+                            }`}>
+                              <p className="text-sm leading-relaxed">{msg.text}</p>
+                              <p className="text-xs opacity-70 mt-1">{msg.time}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* AI 규칙 학습 다이얼로그 */}
             {showRuleDialog && (
@@ -354,7 +430,7 @@ export default function ParentApp() {
                           disabled={!ruleInput.trim()}
                           className={`w-full py-4 rounded-xl font-bold text-lg transition ${
                             ruleInput.trim()
-                              ? 'bg-gray-600 hover:bg-gray-500 text-white'
+                              ? 'bg-slate-600 hover:bg-slate-700 text-white'
                               : 'bg-stone-700 text-stone-500 cursor-not-allowed'
                           }`}
                         >
@@ -365,7 +441,7 @@ export default function ParentApp() {
                       <div className="bg-stone-900 rounded-xl p-4 max-h-96 overflow-y-auto space-y-3">
                         {aiMessages.map((msg, index) => (
                           <div key={index} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                            <div className={`max-w-xs ${msg.sender === 'user' ? 'bg-gray-600' : 'bg-stone-700'} rounded-2xl px-4 py-3`}>
+                            <div className={`max-w-xs ${msg.sender === 'user' ? 'bg-slate-600' : 'bg-stone-700'} rounded-2xl px-4 py-3`}>
                               <p className="text-white text-sm">{msg.text}</p>
                               {msg.options && (
                                 <div className="mt-3 space-y-2">
@@ -434,7 +510,7 @@ export default function ParentApp() {
                 </p>
                 <div className="w-full bg-stone-700 rounded-full h-2">
                   <div 
-                    className="bg-gray-600 h-2 rounded-full"
+                    className="bg-slate-600 h-2 rounded-full"
                     style={{ width: `${(childData.saved / childData.savingGoal) * 100}%` }}
                   />
                 </div>
@@ -476,128 +552,6 @@ export default function ParentApp() {
                 ))}
               </div>
             </div>
-
-            {/* 카테고리별 지출 */}
-            <div className="bg-stone-800 border border-stone-700 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4">카테고리별 지출</h3>
-              <div className="space-y-4">
-                {spendingByCategory.map((item, index) => (
-                  <div key={index}>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-white font-medium">{item.category}</span>
-                      <span className="text-stone-400">{item.amount.toLocaleString()}원</span>
-                    </div>
-                    <div className="w-full bg-stone-700 rounded-full h-2">
-                      <div 
-                        className="bg-gray-600 h-2 rounded-full"
-                        style={{ width: `${item.percentage}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* AI 통화 기록 */}
-        {activeScreen === 'calls' && (
-          <div className="space-y-6">
-            {!selectedCallLog ? (
-              <div className="bg-stone-800 border border-stone-700 rounded-2xl p-6">
-                <h2 className="text-2xl font-bold text-white mb-6">AI 통화 기록</h2>
-                <div className="space-y-4">
-                  {aiCallLogs.map(log => (
-                    <button
-                      key={log.id}
-                      onClick={() => setSelectedCallLog(log)}
-                      className="w-full bg-stone-900 hover:bg-stone-850 rounded-xl p-5 transition text-left"
-                    >
-                      <div className="flex items-start justify-between mb-3">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-10 h-10 bg-gray-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <Phone className="w-5 h-5 text-white" />
-                          </div>
-                          <div>
-                            <p className="font-semibold text-white">
-                              {log.type === 'payment' ? '🔴 결제 확인 전화' : '✅ 미션 확인 전화'}
-                            </p>
-                            <p className="text-sm text-stone-400">{log.merchant}</p>
-                            <p className="text-xs text-stone-500 mt-1">{log.time}</p>
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <p className="text-sm text-stone-400">{log.duration}</p>
-                          <span className={`text-xs font-medium ${
-                            log.result.includes('거부') ? 'text-gray-300' : 'text-gray-300'
-                          }`}>
-                            {log.result}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="bg-stone-800 rounded-lg p-3">
-                        <p className="text-sm text-stone-300">{log.summary}</p>
-                      </div>
-                      <div className="mt-3 text-right">
-                        <span className="text-gray-300 text-sm">대화 내용 보기 →</span>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <div className="bg-stone-800 border border-stone-700 rounded-2xl p-6">
-                <button
-                  onClick={() => setSelectedCallLog(null)}
-                  className="text-stone-400 hover:text-white mb-4 flex items-center"
-                >
-                  ← 돌아가기
-                </button>
-                
-                <div className="mb-6">
-                  <div className="flex items-center space-x-3 mb-2">
-                    <div className="w-12 h-12 bg-gray-600 rounded-xl flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h2 className="text-xl font-bold text-white">{selectedCallLog.merchant}</h2>
-                      <p className="text-sm text-stone-400">{selectedCallLog.time} · {selectedCallLog.duration}</p>
-                    </div>
-                  </div>
-                  <div className="bg-stone-900 rounded-lg p-3">
-                    <span className={`text-sm font-medium ${
-                      selectedCallLog.result.includes('거부') ? 'text-gray-300' : 'text-gray-300'
-                    }`}>
-                      {selectedCallLog.result}
-                    </span>
-                  </div>
-                </div>
-
-                {/* 대화 내용 */}
-                <div className="bg-stone-900 rounded-xl p-4 max-h-96 overflow-y-auto space-y-4">
-                  {selectedCallLog.conversation.map((msg, index) => (
-                    <div key={index} className={`flex ${msg.sender === 'ai' ? 'justify-start' : 'justify-end'}`}>
-                      <div className={`max-w-xs ${msg.sender === 'ai' ? 'mr-auto' : 'ml-auto'}`}>
-                        {msg.sender === 'ai' && (
-                          <p className="text-stone-400 text-xs mb-1 ml-3">AI 도우미</p>
-                        )}
-                        {msg.sender === 'child' && (
-                          <p className="text-stone-400 text-xs mb-1 mr-3 text-right">{childData.name}</p>
-                        )}
-                        <div className={`rounded-2xl px-4 py-3 ${
-                          msg.sender === 'ai' 
-                            ? 'bg-stone-700 text-white' 
-                            : 'bg-gray-600 text-white'
-                        }`}>
-                          <p className="text-sm leading-relaxed">{msg.text}</p>
-                          <p className="text-xs opacity-70 mt-1">{msg.time}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
         )}
 
@@ -647,7 +601,7 @@ export default function ParentApp() {
                   </div>
                 </div>
 
-                <button className="w-full bg-gray-600 hover:bg-gray-500 text-white py-3 rounded-xl font-semibold transition">
+                <button className="w-full bg-slate-600 hover:bg-slate-700 text-white py-3 rounded-xl font-semibold transition">
                   저장
                 </button>
               </div>
@@ -656,13 +610,13 @@ export default function ParentApp() {
         )}
       </main>
 
-      {/* 하단 네비게이션 - 2개 탭만 */}
+      {/* 하단 네비게이션 - 대시보드만 */}
       <nav className="fixed bottom-0 left-0 right-0 bg-stone-800 border-t border-stone-700 z-20">
         <div className="max-w-6xl mx-auto px-6 py-3">
-          <div className="grid grid-cols-2 gap-2">
+          <div className="flex justify-center">
             <button
               onClick={() => setActiveScreen('dashboard')}
-              className={`flex flex-col items-center py-3 rounded-xl transition ${
+              className={`flex flex-col items-center py-3 rounded-xl transition px-6 ${
                 activeScreen === 'dashboard'
                   ? 'text-gray-400'
                   : 'text-stone-400'
@@ -670,20 +624,6 @@ export default function ParentApp() {
             >
               <LayoutDashboard className="w-6 h-6 mb-1" />
               <span className="text-sm font-medium">대시보드</span>
-            </button>
-            <button
-              onClick={() => {
-                setActiveScreen('calls');
-                setSelectedCallLog(null);
-              }}
-              className={`flex flex-col items-center py-3 rounded-xl transition ${
-                activeScreen === 'calls'
-                  ? 'text-gray-400'
-                  : 'text-stone-400'
-              }`}
-            >
-              <Phone className="w-6 h-6 mb-1" />
-              <span className="text-sm font-medium">AI 통화기록</span>
             </button>
           </div>
         </div>

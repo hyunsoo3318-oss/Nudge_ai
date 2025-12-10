@@ -16,10 +16,10 @@ const SelectionScreen = () => {
           {/* 아이 모드 */}
           <button
             onClick={() => navigate('/child')}
-            className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 border-4 border-transparent hover:border-gray-800"
+            className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 border-4 border-transparent hover:border-slate-400"
           >
             <div className="flex flex-col items-center">
-              <div className="w-24 h-24 bg-black rounded-3xl flex items-center justify-center mb-6">
+              <div className="w-24 h-24 bg-slate-600 rounded-3xl flex items-center justify-center mb-6">
                 <Baby className="w-12 h-12 text-white" />
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-3">아이 모드</h2>
@@ -27,10 +27,10 @@ const SelectionScreen = () => {
                 용돈 관리, 미션 완료, AI와 대화
               </p>
               <div className="flex flex-wrap gap-2 justify-center">
-                <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">용돈 확인</span>
-                <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">결제하기</span>
-                <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">미션</span>
-                <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">저축목표</span>
+                <span className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">용돈 확인</span>
+                <span className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">결제하기</span>
+                <span className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">미션</span>
+                <span className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">저축목표</span>
               </div>
             </div>
           </button>
@@ -38,7 +38,7 @@ const SelectionScreen = () => {
           {/* 부모 모드 */}
           <button
             onClick={() => navigate('/parent')}
-            className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 border-4 border-transparent hover:border-gray-800"
+            className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 border-4 border-transparent hover:border-slate-400"
           >
             <div className="flex flex-col items-center">
               <div className="w-24 h-24 bg-gray-700 rounded-3xl flex items-center justify-center mb-6">

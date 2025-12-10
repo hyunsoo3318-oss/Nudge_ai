@@ -167,7 +167,7 @@ const ChildApp = () => {
         {/* 중앙 컨텐츠 */}
         <div className="px-8 flex flex-col items-center">
           {/* AI 아이콘 */}
-          <div className="w-24 h-24 bg-black rounded-3xl mb-6 flex items-center justify-center">
+          <div className="w-24 h-24 bg-slate-600 rounded-3xl mb-6 flex items-center justify-center">
             <Phone className="w-12 h-12 text-white" />
           </div>
           
@@ -186,7 +186,7 @@ const ChildApp = () => {
           <div className="w-full max-w-sm space-y-3">
             <button 
               onClick={answerCall}
-              className="w-full bg-black hover:bg-gray-800 text-white py-5 rounded-2xl font-semibold text-lg flex items-center justify-center space-x-2 transition"
+              className="w-full bg-slate-600 hover:bg-slate-700 text-white py-5 rounded-2xl font-semibold text-lg flex items-center justify-center space-x-2 transition"
             >
               <Phone className="w-5 h-5" />
               <span>전화 받기</span>
@@ -211,7 +211,7 @@ const ChildApp = () => {
         {/* 상단 헤더 */}
         <div className="bg-white border-b border-gray-100 p-6 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-slate-600 rounded-xl flex items-center justify-center">
               <Phone className="w-5 h-5 text-white" />
             </div>
             <div>
@@ -220,7 +220,7 @@ const ChildApp = () => {
             </div>
           </div>
           <div className="flex items-center space-x-1">
-            <span className="w-2 h-2 bg-black rounded-full animate-pulse"></span>
+            <span className="w-2 h-2 bg-slate-600 rounded-full animate-pulse"></span>
             <span className="text-sm text-gray-500">통화 중</span>
           </div>
         </div>
@@ -242,7 +242,7 @@ const ChildApp = () => {
                 <div className={`rounded-2xl px-4 py-3 ${
                   msg.sender === 'ai' 
                     ? 'bg-white border border-gray-200 text-gray-900' 
-                    : 'bg-black text-white'
+                    : 'bg-slate-600 text-white'
                 }`}>
                   <p className="text-sm leading-relaxed">{msg.text}</p>
                 </div>
@@ -292,7 +292,7 @@ const ChildApp = () => {
           {/* 전화 끊기 버튼 */}
           <button 
             onClick={endCall}
-            className="w-full bg-black hover:bg-gray-800 rounded-2xl py-4 flex items-center justify-center space-x-2 transition"
+            className="w-full bg-slate-600 hover:bg-slate-700 rounded-2xl py-4 flex items-center justify-center space-x-2 transition"
           >
             <PhoneOff className="w-5 h-5 text-white" />
             <span className="text-white font-semibold">전화 끊기</span>
@@ -319,7 +319,7 @@ const ChildApp = () => {
         <h1 className="text-xl font-bold text-gray-900">{childData.name}의 AI 도우미</h1>
         <p className="text-xs text-gray-400">레벨 {childData.level} · {childData.points}P</p>
       </div>
-      <div className="bg-black p-2.5 rounded-xl">
+      <div className="bg-slate-600 p-2.5 rounded-xl">
         <Phone className="w-5 h-5 text-white" />
       </div>
     </div>
@@ -363,7 +363,7 @@ const ChildApp = () => {
                 </div>
                 <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
                   <div 
-                    className="bg-black h-2 rounded-full transition-all duration-500"
+                    className="bg-slate-600 h-2 rounded-full transition-all duration-500"
                     style={{ width: `${(childData.remaining / childData.weeklyBudget) * 100}%` }}
                   />
                 </div>
@@ -386,7 +386,7 @@ const ChildApp = () => {
               onClick={() => {
                 setActiveScreen('payment');
               }}
-              className="w-full bg-black hover:bg-gray-800 text-white py-5 rounded-2xl font-semibold text-lg transition flex items-center justify-center space-x-3"
+              className="w-full bg-slate-600 hover:bg-slate-700 text-white py-5 rounded-2xl font-semibold text-lg transition flex items-center justify-center space-x-3"
             >
               <CreditCard className="w-6 h-6" />
               <span>결제하기</span>
@@ -414,7 +414,7 @@ const ChildApp = () => {
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center space-x-3 flex-1">
                         <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                          task.completed ? 'bg-black' : 'bg-gray-200'
+                          task.completed ? 'bg-slate-600' : 'bg-gray-200'
                         }`}>
                           {task.completed && <CheckCircle className="w-4 h-4 text-white" />}
                         </div>
@@ -461,7 +461,7 @@ const ChildApp = () => {
                 </div>
                 <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
                   <div 
-                    className="bg-black h-2 rounded-full transition-all duration-500"
+                    className="bg-slate-600 h-2 rounded-full transition-all duration-500"
                     style={{ width: `${(childData.saved / childData.savingGoal) * 100}%` }}
                   />
                 </div>
@@ -611,7 +611,7 @@ const ChildApp = () => {
                   onClick={() => {
                     setCallStatus('incoming');
                   }}
-                  className="w-full bg-black hover:bg-gray-800 text-white py-4 rounded-2xl font-semibold transition"
+                  className="w-full bg-slate-600 hover:bg-slate-700 text-white py-4 rounded-2xl font-semibold transition"
                 >
                   스캔 완료 (테스트)
                 </button>
@@ -661,7 +661,7 @@ const ChildApp = () => {
                             onClick={() => {
                               setCallStatus('incoming');
                             }}
-                            className="flex items-center space-x-1.5 bg-black hover:bg-gray-800 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition"
+                            className="flex items-center space-x-1.5 bg-slate-600 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition"
                           >
                             <Phone className="w-3.5 h-3.5" />
                             <span>AI 전화 받기</span>
@@ -745,9 +745,9 @@ const ChildApp = () => {
                   잠시만 기다려주세요
                 </p>
                 <div className="flex justify-center space-x-2">
-                  <div className="w-2 h-2 bg-black rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                  <div className="w-2 h-2 bg-black rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                  <div className="w-2 h-2 bg-black rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                  <div className="w-2 h-2 bg-slate-600 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                  <div className="w-2 h-2 bg-slate-600 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                  <div className="w-2 h-2 bg-slate-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                 </div>
               </div>
             )}
@@ -791,7 +791,7 @@ const ChildApp = () => {
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center space-x-3 flex-1">
                         <button className={`w-10 h-10 rounded-full flex items-center justify-center transition flex-shrink-0 ${
-                          task.completed ? 'bg-gray-700' : 'bg-gray-200 hover:bg-gray-300'
+                          task.completed ? 'bg-slate-600' : 'bg-gray-200 hover:bg-gray-300'
                         }`}>
                           {task.completed && <CheckCircle className="w-6 h-6 text-white" />}
                         </button>
