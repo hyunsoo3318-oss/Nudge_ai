@@ -183,7 +183,7 @@ export default function ParentApp() {
         <h1 className="text-xl font-bold text-white">부모 관리 대시보드</h1>
         <p className="text-xs text-stone-400">아이: {childData.name}</p>
       </div>
-      <div className="bg-red-400 p-2.5 rounded-xl">
+      <div className="bg-gray-700 p-2.5 rounded-xl">
         <LayoutDashboard className="w-5 h-5 text-white" />
       </div>
     </div>
@@ -197,18 +197,18 @@ export default function ParentApp() {
           <div className="space-y-6">
             {/* 긴급 알림 - 승인 대기 */}
             {pendingPayments.length > 0 && (
-              <div className="bg-red-800 border-2 border-red-400 rounded-2xl p-6">
+              <div className="bg-gray-800 border-2 border-gray-600 rounded-2xl p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-red-400 rounded-xl flex items-center justify-center animate-pulse">
+                    <div className="w-12 h-12 bg-gray-600 rounded-xl flex items-center justify-center animate-pulse">
                       <CreditCard className="w-6 h-6 text-white" />
                     </div>
                     <div>
                       <h2 className="text-xl font-bold text-white">결제 승인 요청</h2>
-                      <p className="text-red-200 text-sm">AI가 검토를 완료했습니다</p>
+                      <p className="text-gray-300 text-sm">AI가 검토를 완료했습니다</p>
                     </div>
                   </div>
-                  <span className="bg-red-400 text-white px-4 py-2 rounded-lg text-sm font-bold animate-pulse">
+                  <span className="bg-gray-600 text-white px-4 py-2 rounded-lg text-sm font-bold animate-pulse">
                     {pendingPayments.length}건 대기
                   </span>
                 </div>
@@ -225,7 +225,7 @@ export default function ParentApp() {
 
                     <div className="bg-stone-900 rounded-xl p-4 mb-4">
                       <div className="flex items-center space-x-2 mb-2">
-                        <span className="text-red-400 font-semibold text-sm">🤖 AI 권장: 거부</span>
+                        <span className="text-gray-300 font-semibold text-sm">🤖 AI 권장: 거부</span>
                       </div>
                       <p className="text-stone-300 text-sm">{payment.aiReason}</p>
                     </div>
@@ -239,7 +239,7 @@ export default function ParentApp() {
                       </button>
                       <button
                         onClick={() => handleApprove(payment.id)}
-                        className="bg-red-400 hover:bg-red-400 text-white py-3 rounded-xl font-semibold transition"
+                        className="bg-gray-600 hover:bg-gray-500 text-white py-3 rounded-xl font-semibold transition"
                       >
                         승인
                       </button>
@@ -250,7 +250,7 @@ export default function ParentApp() {
             )}
 
             {/* 주간 용돈 - 크게 강조 */}
-            <div className="bg-gradient-to-br from-red-400 to-red-600 rounded-2xl p-8 shadow-2xl">
+            <div className="bg-gray-800 rounded-2xl p-8 shadow-2xl">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold text-white">주간 용돈</h2>
                 <button className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
@@ -260,7 +260,7 @@ export default function ParentApp() {
               <div className="mb-6">
                 <div className="flex items-end space-x-3 mb-3">
                   <p className="text-5xl font-bold text-white">{childData.weeklyBudget.toLocaleString()}</p>
-                  <p className="text-xl text-red-200 mb-2">원 / 주</p>
+                  <p className="text-xl text-gray-300 mb-2">원 / 주</p>
                 </div>
                 <div className="w-full bg-white bg-opacity-20 rounded-full h-3">
                   <div 
@@ -269,20 +269,20 @@ export default function ParentApp() {
                   />
                 </div>
                 <div className="flex justify-between mt-3">
-                  <p className="text-red-50 text-sm">사용: {childData.spent.toLocaleString()}원</p>
+                  <p className="text-gray-300 text-sm">사용: {childData.spent.toLocaleString()}원</p>
                   <p className="text-white text-sm font-semibold">남음: {childData.remaining.toLocaleString()}원</p>
                 </div>
               </div>
             </div>
 
             {/* AI 결제 규칙 - 핵심 기능 강조 */}
-            <div className="bg-gradient-to-br from-purple-900 to-indigo-900 border-2 border-purple-500 rounded-2xl p-6 shadow-2xl">
+            <div className="bg-gray-800 border-2 border-gray-600 rounded-2xl p-6 shadow-2xl">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h2 className="text-2xl font-bold text-white mb-1">🤖 AI 결제 규칙</h2>
-                  <p className="text-purple-200 text-sm">AI가 자동으로 학습하고 판단합니다</p>
+                  <p className="text-gray-300 text-sm">AI가 자동으로 학습하고 판단합니다</p>
                 </div>
-                <div className="bg-purple-500 px-3 py-1 rounded-full">
+                <div className="bg-gray-600 px-3 py-1 rounded-full">
                   <span className="text-white text-sm font-bold">핵심 기능</span>
                 </div>
               </div>
@@ -300,7 +300,7 @@ export default function ParentApp() {
                       />
                       <span className="text-white text-sm">{rule.rule}</span>
                     </div>
-                    <button className="text-stone-400 hover:text-red-400 transition text-sm ml-3">삭제</button>
+                    <button className="text-stone-400 hover:text-gray-300 transition text-sm ml-3">삭제</button>
                   </div>
                 ))}
               </div>
@@ -308,7 +308,7 @@ export default function ParentApp() {
               {/* 규칙 추가 버튼 */}
               <button
                 onClick={() => setShowRuleDialog(true)}
-                className="w-full bg-purple-500 hover:bg-purple-600 text-white py-4 rounded-xl font-bold text-lg transition shadow-lg flex items-center justify-center space-x-2"
+                className="w-full bg-gray-600 hover:bg-gray-500 text-white py-4 rounded-xl font-bold text-lg transition shadow-lg flex items-center justify-center space-x-2"
               >
                 <span className="text-2xl">+</span>
                 <span>AI에게 새 규칙 학습시키기</span>
@@ -354,7 +354,7 @@ export default function ParentApp() {
                           disabled={!ruleInput.trim()}
                           className={`w-full py-4 rounded-xl font-bold text-lg transition ${
                             ruleInput.trim()
-                              ? 'bg-purple-500 hover:bg-purple-600 text-white'
+                              ? 'bg-gray-600 hover:bg-gray-500 text-white'
                               : 'bg-stone-700 text-stone-500 cursor-not-allowed'
                           }`}
                         >
@@ -365,7 +365,7 @@ export default function ParentApp() {
                       <div className="bg-stone-900 rounded-xl p-4 max-h-96 overflow-y-auto space-y-3">
                         {aiMessages.map((msg, index) => (
                           <div key={index} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                            <div className={`max-w-xs ${msg.sender === 'user' ? 'bg-purple-500' : 'bg-stone-700'} rounded-2xl px-4 py-3`}>
+                            <div className={`max-w-xs ${msg.sender === 'user' ? 'bg-gray-600' : 'bg-stone-700'} rounded-2xl px-4 py-3`}>
                               <p className="text-white text-sm">{msg.text}</p>
                               {msg.options && (
                                 <div className="mt-3 space-y-2">
@@ -434,7 +434,7 @@ export default function ParentApp() {
                 </p>
                 <div className="w-full bg-stone-700 rounded-full h-2">
                   <div 
-                    className="bg-red-400 h-2 rounded-full"
+                    className="bg-gray-600 h-2 rounded-full"
                     style={{ width: `${(childData.saved / childData.savingGoal) * 100}%` }}
                   />
                 </div>
@@ -461,12 +461,12 @@ export default function ParentApp() {
                     <div className="text-right ml-4">
                       <p className="font-bold text-white">{payment.amount.toLocaleString()}원</p>
                       {payment.status === 'approved' ? (
-                        <span className="text-xs text-green-400 flex items-center justify-end mt-1">
+                        <span className="text-xs text-gray-300 flex items-center justify-end mt-1">
                           <CheckCircle className="w-3 h-3 mr-1" />
                           승인됨
                         </span>
                       ) : (
-                        <span className="text-xs text-red-400 flex items-center justify-end mt-1">
+                        <span className="text-xs text-gray-300 flex items-center justify-end mt-1">
                           <XCircle className="w-3 h-3 mr-1" />
                           거부됨
                         </span>
@@ -489,7 +489,7 @@ export default function ParentApp() {
                     </div>
                     <div className="w-full bg-stone-700 rounded-full h-2">
                       <div 
-                        className="bg-red-400 h-2 rounded-full"
+                        className="bg-gray-600 h-2 rounded-full"
                         style={{ width: `${item.percentage}%` }}
                       />
                     </div>
@@ -515,7 +515,7 @@ export default function ParentApp() {
                     >
                       <div className="flex items-start justify-between mb-3">
                         <div className="flex items-center space-x-3">
-                          <div className="w-10 h-10 bg-red-400 rounded-xl flex items-center justify-center flex-shrink-0">
+                          <div className="w-10 h-10 bg-gray-600 rounded-xl flex items-center justify-center flex-shrink-0">
                             <Phone className="w-5 h-5 text-white" />
                           </div>
                           <div>
@@ -529,7 +529,7 @@ export default function ParentApp() {
                         <div className="text-right">
                           <p className="text-sm text-stone-400">{log.duration}</p>
                           <span className={`text-xs font-medium ${
-                            log.result.includes('거부') ? 'text-red-400' : 'text-green-400'
+                            log.result.includes('거부') ? 'text-gray-300' : 'text-gray-300'
                           }`}>
                             {log.result}
                           </span>
@@ -539,7 +539,7 @@ export default function ParentApp() {
                         <p className="text-sm text-stone-300">{log.summary}</p>
                       </div>
                       <div className="mt-3 text-right">
-                        <span className="text-blue-400 text-sm">대화 내용 보기 →</span>
+                        <span className="text-gray-300 text-sm">대화 내용 보기 →</span>
                       </div>
                     </button>
                   ))}
@@ -556,7 +556,7 @@ export default function ParentApp() {
                 
                 <div className="mb-6">
                   <div className="flex items-center space-x-3 mb-2">
-                    <div className="w-12 h-12 bg-red-400 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gray-600 rounded-xl flex items-center justify-center">
                       <Phone className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -566,7 +566,7 @@ export default function ParentApp() {
                   </div>
                   <div className="bg-stone-900 rounded-lg p-3">
                     <span className={`text-sm font-medium ${
-                      selectedCallLog.result.includes('거부') ? 'text-red-400' : 'text-green-400'
+                      selectedCallLog.result.includes('거부') ? 'text-gray-300' : 'text-gray-300'
                     }`}>
                       {selectedCallLog.result}
                     </span>
@@ -587,7 +587,7 @@ export default function ParentApp() {
                         <div className={`rounded-2xl px-4 py-3 ${
                           msg.sender === 'ai' 
                             ? 'bg-stone-700 text-white' 
-                            : 'bg-red-400 text-white'
+                            : 'bg-gray-600 text-white'
                         }`}>
                           <p className="text-sm leading-relaxed">{msg.text}</p>
                           <p className="text-xs opacity-70 mt-1">{msg.time}</p>
@@ -647,7 +647,7 @@ export default function ParentApp() {
                   </div>
                 </div>
 
-                <button className="w-full bg-red-400 hover:bg-red-400 text-white py-3 rounded-xl font-semibold transition">
+                <button className="w-full bg-gray-600 hover:bg-gray-500 text-white py-3 rounded-xl font-semibold transition">
                   저장
                 </button>
               </div>
@@ -664,7 +664,7 @@ export default function ParentApp() {
               onClick={() => setActiveScreen('dashboard')}
               className={`flex flex-col items-center py-3 rounded-xl transition ${
                 activeScreen === 'dashboard'
-                  ? 'text-red-400'
+                  ? 'text-gray-400'
                   : 'text-stone-400'
               }`}
             >
@@ -678,7 +678,7 @@ export default function ParentApp() {
               }}
               className={`flex flex-col items-center py-3 rounded-xl transition ${
                 activeScreen === 'calls'
-                  ? 'text-red-400'
+                  ? 'text-gray-400'
                   : 'text-stone-400'
               }`}
             >

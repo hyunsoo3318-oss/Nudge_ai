@@ -167,7 +167,7 @@ const ChildApp = () => {
         {/* 중앙 컨텐츠 */}
         <div className="px-8 flex flex-col items-center">
           {/* AI 아이콘 */}
-          <div className="w-24 h-24 bg-red-500 rounded-3xl mb-6 flex items-center justify-center">
+          <div className="w-24 h-24 bg-black rounded-3xl mb-6 flex items-center justify-center">
             <Phone className="w-12 h-12 text-white" />
           </div>
           
@@ -186,7 +186,7 @@ const ChildApp = () => {
           <div className="w-full max-w-sm space-y-3">
             <button 
               onClick={answerCall}
-              className="w-full bg-red-500 hover:bg-red-600 text-white py-5 rounded-2xl font-semibold text-lg flex items-center justify-center space-x-2 transition"
+              className="w-full bg-black hover:bg-gray-800 text-white py-5 rounded-2xl font-semibold text-lg flex items-center justify-center space-x-2 transition"
             >
               <Phone className="w-5 h-5" />
               <span>전화 받기</span>
@@ -211,7 +211,7 @@ const ChildApp = () => {
         {/* 상단 헤더 */}
         <div className="bg-white border-b border-gray-100 p-6 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center">
               <Phone className="w-5 h-5 text-white" />
             </div>
             <div>
@@ -220,7 +220,7 @@ const ChildApp = () => {
             </div>
           </div>
           <div className="flex items-center space-x-1">
-            <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+            <span className="w-2 h-2 bg-black rounded-full animate-pulse"></span>
             <span className="text-sm text-gray-500">통화 중</span>
           </div>
         </div>
@@ -242,7 +242,7 @@ const ChildApp = () => {
                 <div className={`rounded-2xl px-4 py-3 ${
                   msg.sender === 'ai' 
                     ? 'bg-white border border-gray-200 text-gray-900' 
-                    : 'bg-red-500 text-white'
+                    : 'bg-black text-white'
                 }`}>
                   <p className="text-sm leading-relaxed">{msg.text}</p>
                 </div>
@@ -292,7 +292,7 @@ const ChildApp = () => {
           {/* 전화 끊기 버튼 */}
           <button 
             onClick={endCall}
-            className="w-full bg-red-500 hover:bg-red-600 rounded-2xl py-4 flex items-center justify-center space-x-2 transition"
+            className="w-full bg-black hover:bg-gray-800 rounded-2xl py-4 flex items-center justify-center space-x-2 transition"
           >
             <PhoneOff className="w-5 h-5 text-white" />
             <span className="text-white font-semibold">전화 끊기</span>
@@ -319,7 +319,7 @@ const ChildApp = () => {
         <h1 className="text-xl font-bold text-gray-900">{childData.name}의 AI 도우미</h1>
         <p className="text-xs text-gray-400">레벨 {childData.level} · {childData.points}P</p>
       </div>
-      <div className="bg-red-500 p-2.5 rounded-xl">
+      <div className="bg-black p-2.5 rounded-xl">
         <Phone className="w-5 h-5 text-white" />
       </div>
     </div>
@@ -363,7 +363,7 @@ const ChildApp = () => {
                 </div>
                 <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
                   <div 
-                    className="bg-red-500 h-2 rounded-full transition-all duration-500"
+                    className="bg-black h-2 rounded-full transition-all duration-500"
                     style={{ width: `${(childData.remaining / childData.weeklyBudget) * 100}%` }}
                   />
                 </div>
@@ -374,9 +374,9 @@ const ChildApp = () => {
                   <p className="text-gray-500 text-xs mb-1">사용함</p>
                   <p className="text-gray-900 font-bold text-lg">{childData.spent.toLocaleString()}원</p>
                 </div>
-                <div className="bg-red-50 rounded-xl p-4 border border-red-100">
-                  <p className="text-red-600 text-xs mb-1">남음</p>
-                  <p className="text-red-600 font-bold text-lg">{childData.remaining.toLocaleString()}원</p>
+                <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                  <p className="text-gray-600 text-xs mb-1">남음</p>
+                  <p className="text-gray-900 font-bold text-lg">{childData.remaining.toLocaleString()}원</p>
                 </div>
               </div>
             </div>
@@ -386,7 +386,7 @@ const ChildApp = () => {
               onClick={() => {
                 setActiveScreen('payment');
               }}
-              className="w-full bg-red-500 hover:bg-red-600 text-white py-5 rounded-2xl font-semibold text-lg transition flex items-center justify-center space-x-3"
+              className="w-full bg-black hover:bg-gray-800 text-white py-5 rounded-2xl font-semibold text-lg transition flex items-center justify-center space-x-3"
             >
               <CreditCard className="w-6 h-6" />
               <span>결제하기</span>
@@ -396,7 +396,7 @@ const ChildApp = () => {
             <div className="bg-white rounded-2xl p-6 border border-gray-100">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold text-gray-900">오늘의 미션</h3>
-                <span className="bg-red-50 text-red-600 px-3 py-1 rounded-lg text-sm font-semibold border border-red-100">
+                <span className="bg-gray-50 text-gray-800 px-3 py-1 rounded-lg text-sm font-semibold border border-gray-100">
                   {todayTasks.filter(t => t.completed).length}/{todayTasks.length}
                 </span>
               </div>
@@ -414,7 +414,7 @@ const ChildApp = () => {
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center space-x-3 flex-1">
                         <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                          task.completed ? 'bg-red-500' : 'bg-gray-200'
+                          task.completed ? 'bg-black' : 'bg-gray-200'
                         }`}>
                           {task.completed && <CheckCircle className="w-4 h-4 text-white" />}
                         </div>
@@ -435,7 +435,7 @@ const ChildApp = () => {
                     {/* AI 전화 확인 표시 */}
                     {task.aiCalled && (
                       <div className="flex items-center space-x-2 ml-10 mt-2">
-                        <Phone className="w-3 h-3 text-red-500" />
+                        <Phone className="w-3 h-3 text-gray-600" />
                         <span className="text-xs text-gray-500">{task.callResult}</span>
                       </div>
                     )}
@@ -461,7 +461,7 @@ const ChildApp = () => {
                 </div>
                 <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
                   <div 
-                    className="bg-red-500 h-2 rounded-full transition-all duration-500"
+                    className="bg-black h-2 rounded-full transition-all duration-500"
                     style={{ width: `${(childData.saved / childData.savingGoal) * 100}%` }}
                   />
                 </div>
@@ -483,8 +483,8 @@ const ChildApp = () => {
               <h2 className="text-2xl font-bold text-gray-800 mb-6">💰 용돈 내역</h2>
               
               {/* 요약 카드 */}
-              <div className="bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl p-6 text-white mb-6">
-                <p className="text-blue-100 text-sm mb-2">이번 주 사용 금액</p>
+              <div className="bg-gray-900 rounded-2xl p-6 text-white mb-6">
+                <p className="text-gray-300 text-sm mb-2">이번 주 사용 금액</p>
                 <p className="text-4xl font-bold mb-4">{childData.spent.toLocaleString()}원</p>
                 <div className="flex items-center justify-between text-sm">
                   <span>남은 금액: {childData.remaining.toLocaleString()}원</span>
@@ -514,11 +514,11 @@ const ChildApp = () => {
             </div>
 
             {/* 용돈 팁 */}
-            <div className="bg-gradient-to-r from-green-400 to-teal-400 rounded-3xl p-6 text-white shadow-lg">
+            <div className="bg-gray-900 rounded-3xl p-6 text-white shadow-lg">
               <h3 className="text-xl font-bold mb-2 flex items-center">
                 💡 용돈 관리 팁
               </h3>
-              <p className="text-green-100">
+              <p className="text-gray-300">
                 이번 주 목표를 달성하면 보너스 포인트를 받을 수 있어요!
               </p>
             </div>
@@ -539,7 +539,7 @@ const ChildApp = () => {
                     {/* QR 결제 */}
                     <button
                       onClick={() => setPaymentStatus('qr')}
-                      className="w-full bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-red-500 p-5 rounded-2xl transition"
+                      className="w-full bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-gray-800 p-5 rounded-2xl transition"
                     >
                       <div className="flex items-center space-x-4">
                         <div className="bg-gray-100 p-3 rounded-xl">
@@ -555,7 +555,7 @@ const ChildApp = () => {
                     {/* 간편결제 */}
                     <button
                       onClick={() => setPaymentStatus('manual')}
-                      className="w-full bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-red-500 p-5 rounded-2xl transition"
+                      className="w-full bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-gray-800 p-5 rounded-2xl transition"
                     >
                       <div className="flex items-center space-x-4">
                         <div className="bg-gray-100 p-3 rounded-xl">
@@ -571,13 +571,13 @@ const ChildApp = () => {
                 </div>
 
                 {/* 남은 용돈 표시 */}
-                <div className="bg-red-50 rounded-2xl p-6 border border-red-100">
+                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-red-600 text-sm mb-1">사용 가능 금액</p>
+                      <p className="text-gray-600 text-sm mb-1">사용 가능 금액</p>
                       <p className="text-3xl font-bold text-gray-900">{childData.remaining.toLocaleString()}원</p>
                     </div>
-                    <DollarSign className="w-10 h-10 text-red-500" />
+                    <DollarSign className="w-10 h-10 text-gray-600" />
                   </div>
                 </div>
               </>
@@ -611,7 +611,7 @@ const ChildApp = () => {
                   onClick={() => {
                     setCallStatus('incoming');
                   }}
-                  className="w-full bg-red-500 hover:bg-red-600 text-white py-4 rounded-2xl font-semibold transition"
+                  className="w-full bg-black hover:bg-gray-800 text-white py-4 rounded-2xl font-semibold transition"
                 >
                   스캔 완료 (테스트)
                 </button>
@@ -638,10 +638,10 @@ const ChildApp = () => {
                   <div className="mb-6">
                     <h3 className="font-semibold text-gray-900 mb-3 text-sm">결제 승인 대기 중</h3>
                     <div className="space-y-3">
-                      <div className="bg-orange-50 border border-orange-200 rounded-2xl p-4">
+                      <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4">
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center space-x-3">
-                            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-orange-100">
+                            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-gray-100">
                               <span className="text-2xl">🎮</span>
                             </div>
                             <div>
@@ -654,14 +654,14 @@ const ChildApp = () => {
                           </div>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-xs text-orange-600 bg-orange-100 px-3 py-1.5 rounded-lg font-medium border border-orange-200">
+                          <span className="text-xs text-gray-600 bg-gray-100 px-3 py-1.5 rounded-lg font-medium border border-gray-200">
                             AI 확인 중
                           </span>
                           <button
                             onClick={() => {
                               setCallStatus('incoming');
                             }}
-                            className="flex items-center space-x-1.5 bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition"
+                            className="flex items-center space-x-1.5 bg-black hover:bg-gray-800 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition"
                           >
                             <Phone className="w-3.5 h-3.5" />
                             <span>AI 전화 받기</span>
@@ -685,7 +685,7 @@ const ChildApp = () => {
                         </div>
                         <div className="text-right">
                           <p className="text-sm font-semibold text-gray-900">15,000원</p>
-                          <span className="text-xs text-red-600 font-medium">✓ 승인됨</span>
+                          <span className="text-xs text-gray-700 font-medium">✓ 승인됨</span>
                         </div>
                       </div>
 
@@ -699,7 +699,7 @@ const ChildApp = () => {
                         </div>
                         <div className="text-right">
                           <p className="text-sm font-semibold text-gray-900">35,000원</p>
-                          <span className="text-xs text-red-600 font-medium">✗ 거부됨</span>
+                          <span className="text-xs text-gray-700 font-medium">✗ 거부됨</span>
                         </div>
                       </div>
 
@@ -713,7 +713,7 @@ const ChildApp = () => {
                         </div>
                         <div className="text-right">
                           <p className="text-sm font-semibold text-gray-900">12,000원</p>
-                          <span className="text-xs text-red-600 font-medium">✓ 승인됨</span>
+                          <span className="text-xs text-gray-700 font-medium">✓ 승인됨</span>
                         </div>
                       </div>
                     </div>
@@ -721,12 +721,12 @@ const ChildApp = () => {
                 </div>
 
                 {/* 안내 카드 */}
-                <div className="bg-red-50 rounded-2xl p-5 border border-red-100">
+                <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
                   <h3 className="text-base font-semibold text-gray-900 mb-2 flex items-center">
-                    <Phone className="w-4 h-4 mr-2 text-red-600" />
+                    <Phone className="w-4 h-4 mr-2 text-gray-600" />
                     어떻게 작동하나요?
                   </h3>
-                  <p className="text-blue-900 text-sm leading-relaxed">
+                  <p className="text-gray-700 text-sm leading-relaxed">
                     쿠팡, 로블록스 등에서 결제하면 AI가 자동으로 감지하고 전화해서 확인해요. 승인되면 바로 결제가 완료돼요!
                   </p>
                 </div>
@@ -736,8 +736,8 @@ const ChildApp = () => {
             {/* 결제 승인 대기 - 모던 스타일 */}
             {paymentStatus === 'waiting' && (
               <div className="bg-white rounded-2xl p-8 border border-gray-100 text-center">
-                <div className="w-20 h-20 bg-red-50 rounded-2xl mx-auto mb-4 flex items-center justify-center border border-red-100">
-                  <Phone className="w-10 h-10 text-red-500" />
+                <div className="w-20 h-20 bg-gray-50 rounded-2xl mx-auto mb-4 flex items-center justify-center border border-gray-100">
+                  <Phone className="w-10 h-10 text-gray-600" />
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">AI 확인 중</h2>
                 <p className="text-gray-500 mb-4">
@@ -745,9 +745,9 @@ const ChildApp = () => {
                   잠시만 기다려주세요
                 </p>
                 <div className="flex justify-center space-x-2">
-                  <div className="w-2 h-2 bg-red-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                  <div className="w-2 h-2 bg-red-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                  <div className="w-2 h-2 bg-red-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                  <div className="w-2 h-2 bg-black rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                  <div className="w-2 h-2 bg-black rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                  <div className="w-2 h-2 bg-black rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                 </div>
               </div>
             )}
@@ -758,10 +758,10 @@ const ChildApp = () => {
         {activeScreen === 'goals' && (
           <div className="space-y-6">
             {/* 레벨 & 포인트 */}
-            <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl p-6 text-white shadow-lg">
+            <div className="bg-gray-900 rounded-3xl p-6 text-white shadow-lg">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <p className="text-purple-100 text-sm mb-1">현재 레벨</p>
+                  <p className="text-gray-300 text-sm mb-1">현재 레벨</p>
                   <p className="text-4xl font-bold">Level {childData.level}</p>
                 </div>
                 <div className="text-center bg-white bg-opacity-20 rounded-2xl p-4">
@@ -772,7 +772,7 @@ const ChildApp = () => {
               <div className="w-full bg-white bg-opacity-30 rounded-full h-2">
                 <div className="bg-white h-2 rounded-full" style={{ width: '68%' }} />
               </div>
-              <p className="text-purple-100 text-sm mt-2">다음 레벨까지 160P 남음!</p>
+              <p className="text-gray-300 text-sm mt-2">다음 레벨까지 160P 남음!</p>
             </div>
 
             {/* 오늘의 할 일 */}
@@ -784,14 +784,14 @@ const ChildApp = () => {
                     key={task.id}
                     className={`p-4 rounded-2xl transition ${
                       task.completed 
-                        ? 'bg-green-50 border-2 border-green-200' 
+                        ? 'bg-gray-100 border-2 border-gray-300' 
                         : 'bg-gray-50 border-2 border-dashed border-gray-300'
                     }`}
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center space-x-3 flex-1">
                         <button className={`w-10 h-10 rounded-full flex items-center justify-center transition flex-shrink-0 ${
-                          task.completed ? 'bg-green-500' : 'bg-gray-200 hover:bg-gray-300'
+                          task.completed ? 'bg-gray-700' : 'bg-gray-200 hover:bg-gray-300'
                         }`}>
                           {task.completed && <CheckCircle className="w-6 h-6 text-white" />}
                         </button>
@@ -804,18 +804,18 @@ const ChildApp = () => {
                           <span className="text-xs text-gray-500">{task.time} 예정</span>
                         </div>
                       </div>
-                      <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-bold ml-2">
+                      <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-bold ml-2">
                         +{task.points}P
                       </span>
                     </div>
                     
                     {/* AI 전화 확인 표시 */}
                     {task.aiCalled && (
-                      <div className="bg-red-50 border border-red-200 rounded-xl p-3 ml-13 mt-2">
+                      <div className="bg-gray-50 border border-gray-200 rounded-xl p-3 ml-13 mt-2">
                         <div className="flex items-start space-x-2">
-                          <Phone className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                          <Phone className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" />
                           <div>
-                            <p className="text-xs text-red-600 font-medium">AI가 전화로 확인함</p>
+                            <p className="text-xs text-gray-700 font-medium">AI가 전화로 확인함</p>
                             <p className="text-xs text-gray-600 mt-0.5">{task.callResult}</p>
                           </div>
                         </div>
@@ -844,7 +844,7 @@ const ChildApp = () => {
                     key={achievement.id}
                     className={`p-4 rounded-2xl text-center transition ${
                       achievement.unlocked 
-                        ? 'bg-gradient-to-br from-yellow-400 to-orange-400 text-white' 
+                        ? 'bg-gray-800 text-white' 
                         : 'bg-gray-100 text-gray-400'
                     }`}
                   >
@@ -867,7 +867,7 @@ const ChildApp = () => {
               onClick={() => setActiveScreen('home')}
               className={`flex flex-col items-center py-3 rounded-xl transition ${
                 activeScreen === 'home'
-                  ? 'text-red-600'
+                  ? 'text-black'
                   : 'text-gray-400'
               }`}
             >
@@ -878,7 +878,7 @@ const ChildApp = () => {
               onClick={() => setActiveScreen('money')}
               className={`flex flex-col items-center py-3 rounded-xl transition ${
                 activeScreen === 'money'
-                  ? 'text-red-600'
+                  ? 'text-black'
                   : 'text-gray-400'
               }`}
             >
@@ -889,7 +889,7 @@ const ChildApp = () => {
               onClick={() => setActiveScreen('goals')}
               className={`flex flex-col items-center py-3 rounded-xl transition ${
                 activeScreen === 'goals'
-                  ? 'text-red-600'
+                  ? 'text-black'
                   : 'text-gray-400'
               }`}
             >
