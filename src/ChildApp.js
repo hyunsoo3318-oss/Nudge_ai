@@ -554,7 +554,7 @@ const ChildApp = () => {
 
                     {/* 간편결제 */}
                     <button
-                      onClick={() => setPaymentStatus('manual')}
+                      onClick={() => setCallStatus('incoming')}
                       className="w-full bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-gray-800 p-5 rounded-2xl transition"
                     >
                       <div className="flex items-center space-x-4">
