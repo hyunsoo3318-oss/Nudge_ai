@@ -335,7 +335,7 @@ const ChildApp = () => {
             <div className="bg-white rounded-2xl p-6 border border-gray-100">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900">안녕, {childData.name}! 👋</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">안녕, {childData.name}! </h2>
                   <p className="text-gray-500 mt-1">오늘도 좋은 하루 보내자</p>
                 </div>
                 <div className="text-center bg-gray-50 rounded-xl px-4 py-3 border border-gray-100">
