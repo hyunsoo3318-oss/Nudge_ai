@@ -10,6 +10,11 @@
 
 **Nudge AI** is a React single-page application that demonstrates a children's allowance and habit-coaching product built around AI-mediated phone calls. From a single login, the app branches into two fully distinct experiences — a **child app** for spending, missions, and savings, and a **parent dashboard** for payment approvals, AI rule-teaching, and call-log review. The flagship interaction is a scripted, real-time AI call simulation that intercepts a payment, talks the child through the decision against the family's rules, and surfaces the resulting transcript and recommendation to the parent.
 
+## Repository Layout
+
+- **Root** — the React product app (child app + parent dashboard + AI call simulation).
+- **[`landing-page/`](./landing-page)** — the standalone marketing landing page for Nudge AI (a single zero-dependency `index.html`).
+
 ## Technical Highlights
 
 - **Selection-screen routing into two sub-apps** — after login the app lands on a `SelectionScreen` that uses `useNavigate` to branch into entirely separate parent and child experiences, each implemented as its own self-contained component (`ChildApp`, `ParentApp`) with its own navigation, screens, and visual theme.
