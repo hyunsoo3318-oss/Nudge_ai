@@ -6,6 +6,8 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
 
+**[▶ Live demo](https://childinterface.vercel.app)** — try the child app and parent dashboard right in your browser.
+
 ## Overview
 
 **Nudge AI** turns everyday spending moments into teachable ones. When a child is about to make a payment, Nudge AI steps in with a short, friendly phone call — talking them through the decision against the rules their family has set, and then reporting back to the parent. It replaces nagging with a calm, consistent voice that's always there, so kids build money sense and good habits through real conversations instead of lectures.
